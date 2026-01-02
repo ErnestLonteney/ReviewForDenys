@@ -27,7 +27,7 @@
 
         const uint MaxSpeed = 220; // constant readonly - set only inline
 
-        public required string Color // field color
+        public required string Color //  required - Must be put per creating into initializer block -  field color
         {
             get 
             {
@@ -36,7 +36,7 @@
 
                 return string.Empty;
             }
-            init 
+            init // only one time in initializer block
             {
                 if (value != "Black")
                     field = value;
