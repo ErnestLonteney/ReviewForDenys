@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-            var car1 = new Car();
+            var car1 = new Car("Audi", "TT")
+            {
+                Color = "Blue",
+            };
+
+            Console.WriteLine(car1.Color);
            
             car1.Color = "Red";
 
@@ -17,7 +22,10 @@
             Console.WriteLine(car1.Mark);
 
 
-            var car2 = new Car();
+            var car2 = new Car("Renault", "Megan", "White")
+            {
+                Color = "White"
+            };
 
             //car2.SetColor("Black");
             ////car2.mark = "Honda";

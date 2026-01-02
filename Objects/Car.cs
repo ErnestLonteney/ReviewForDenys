@@ -1,30 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ObjectsReview
+﻿namespace ObjectsReview
 {
     class Car
     {
-        private string color; // red
+        #region Constructors
+        public Car(string mark, string model)
+        {
+            Mark = mark;
+            Model = model;
 
-        public string Color
+            // What do constructor in addition implicit 
+            // currentSpeed = 0 
+            // counter = 0;
+        }
+
+        public Car(string mark, string model, string color)
+            :this(mark, model)
+        {
+            Color = color;
+        }
+        #endregion
+
+        #region State
+
+        private int counter; // inner field 
+        private float engeeneVolume = 1.6f; // inner field
+
+        const uint MaxSpeed = 220; // constant readonly - set only inline
+
+        public required string Color // field color
         {
             get 
             {
-                return color.ToUpper(); 
+                if (field != null)
+                    return field.ToUpper();
+
+                return string.Empty;
             }
-            set 
+            init 
             {
                 if (value != "Black")
-                    color = value;
+                    field = value;
                 else
                 {
-                    color = "Not defined";
+                    field = "Not defined";
                 }
             }
         }
 
+        // private string color;
         //public void SetColor(string value)
         //{
         //    if (value != "Black")
@@ -41,32 +64,15 @@ namespace ObjectsReview
         //    return color; 
         //}
 
+        public string Mark { get; } // read-only (set in constructor) = field mark
 
-        // private string mark;
-
-        //public string Mark
-        //{
-        //    get 
-        //    { 
-        //        return mark; 
-        //    }
-        //    set 
-        //    {
-        //        mark = value;    
-        //    }
-        //}
-
-        public string Mark { get; }
-
-        private string model;
-        private float engeeneVolume;
+        public string Model { get; }  // read-only (set in constructor) - field model
       
+        public uint CurrentSpeed { get; private set; }  // read-only (set in constructor/inside class) - field currentSpeed      
 
-        public uint CurrentSpeed { get; private set; }
-            
+        #endregion
 
-        const uint MaxSpeed = 220;
-
+        #region Behavior 
         public void Start() 
         {
             Console.WriteLine("Car has been started");
@@ -86,5 +92,6 @@ namespace ObjectsReview
             if (CurrentSpeed > MaxSpeed)
                 CurrentSpeed = MaxSpeed;
         }
+        #endregion
     }
 }
