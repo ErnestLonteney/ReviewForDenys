@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Arrays/Arrays.csproj" />
   <Project Path="Objects/Objects.csproj" />
+  <Project Path="Objects2/Objects2.csproj" Id="4a2abe67-d775-433d-a8d7-cfa5dc93ee6f" />
   <Project Path="Variables/Variables.csproj" />
 </Solution>

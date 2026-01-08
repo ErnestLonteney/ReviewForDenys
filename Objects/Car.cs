@@ -1,20 +1,15 @@
-﻿namespace ObjectsReview
+﻿using Objects;
+
+namespace ObjectsReview
 {
-    class Car
+    class Car(string mark, string model)
     {
         #region Constructors
-        public Car(string mark, string model)
-        {
-            Mark = mark;
-            Model = model;
 
-            // What do constructor in addition implicit 
-            // currentSpeed = 0 
-            // counter = 0;
-        }
+        public Radio Radio { get; set; } = new Radio(); // auto-property initializer
 
         public Car(string mark, string model, string color)
-            :this(mark, model)
+            : this(mark, model)
         {
             Color = color;
         }
@@ -64,10 +59,10 @@
         //    return color; 
         //}
 
-        public string Mark { get; } // read-only (set in constructor) = field mark
+        public string Mark { get; } = mark;
 
-        public string Model { get; }  // read-only (set in constructor) - field model
-      
+        public string Model { get; } = model;
+
         public uint CurrentSpeed { get; private set; }  // read-only (set in constructor/inside class) - field currentSpeed      
 
         #endregion
