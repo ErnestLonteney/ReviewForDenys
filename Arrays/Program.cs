@@ -42,7 +42,6 @@ namespace ArraysReview
             string[,,,] checks4 = new string[5, 8, 8, 8];
 
             checks4[3, 2, 4, 1] = "45";
-
         }
     }
 }
