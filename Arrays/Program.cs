@@ -7,22 +7,15 @@ namespace ArraysReview
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
+            Console.OutputEncoding = Encoding.UTF8;       
 
-
-            // count = 12232144
-
-            // 12232144
             short count; // 2 байти
-
             count = 10; // 00000000 00001010
-
 
             Console.WriteLine(count);
 
             // 0                       //  1                     // 2
             DateTime[] birthdays = [new DateTime(1990, 1, 10), new DateTime(1987, 2, 2), new DateTime(1978, 3, 4)];
-
             DateTime[] hireDate = [];
 
             for (int i = 0; i < birthdays.Length; i++)
@@ -32,9 +25,11 @@ namespace ArraysReview
 
             string[,] checks = new string[8, 8];
 
-            checks[4, 3] = "Ферзь";
-            checks[6, 7] = "Пішак";
-
+            checks[4, 3] = "Ферзь";    
+            for (int i = 0; i < 8; i++)
+                checks[1, i] = "Пішак";
+            
+            // Вisplay board
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
@@ -42,10 +37,7 @@ namespace ArraysReview
                     Console.WriteLine(checks[i, j]);
                 }
             }
-
-            for (int i = 0; i < 8; i++)
-                checks[1, i] = "Пішак";
-
+            
             string[,,] checks3 = new string[8, 8, 8];
             string[,,,] checks4 = new string[5, 8, 8, 8];
 
