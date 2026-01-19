@@ -63,7 +63,7 @@ namespace ObjectsReview
 
         public string Model { get; } = model;
 
-        public uint CurrentSpeed { get; private set; }  // read-only (set in constructor/inside class) - field currentSpeed      
+        public uint CurrentSpeed { get; protected set; }  // read-only (set in constructor/inside class) - field currentSpeed      
 
         #endregion
 
@@ -80,7 +80,7 @@ namespace ObjectsReview
         }
 
 
-        public void Acelerate(uint delta)
+        public virtual void Acelerate(uint delta)
         {
             CurrentSpeed += delta;
 

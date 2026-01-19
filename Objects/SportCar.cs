@@ -1,7 +1,4 @@
 ﻿using ObjectsReview;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Objects
 {
@@ -21,18 +18,17 @@ namespace Objects
 
         public string ManageBox { get; set; }
 
-        public void AccelerateWithNitro(int value)
+        public override void Acelerate(uint value)
         {
+            var delta = value;
+
             if (NitroVolume > 0)
             {
                 NitroVolume -= 0.5m;
-                Acelerate((uint)(value + 20));
+                delta += 20;
             }
-            else
-            {
-                Acelerate((uint)value);
-            }
-        }
 
+            base.Acelerate(delta);
+        }
     }
 }

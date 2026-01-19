@@ -20,24 +20,41 @@ namespace ObjectsReview
                 Color = "White"
             };
 
-            car2.Start();
-            for (int i = 0; i < 10; i++)
-            {
-                car2.Acelerate(10);
-            }
+            //car2.Start();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    car2.Acelerate(10);
+            //}
 
-            Console.WriteLine(car2.CurrentSpeed);
-           
+            //Console.WriteLine(car2.CurrentSpeed);
+
             SportCar sportCar = new SportCar("Lamborghini", "Diablo", "Red")
             {
-                Color = "Red"
+                Color = "Red",
+                NitroVolume = 100
             };
 
-            sportCar.AccelerateWithNitro(50);
+            //sportCar.Acelerate(50);
 
-            Console.WriteLine(sportCar.Mark);
-            Console.WriteLine(sportCar.Model);
+            //Console.WriteLine(sportCar.Mark);
+            //Console.WriteLine(sportCar.Model);
 
+            Car[] cars = [car1, car2, sportCar];
+
+            for (int i = 0; i < cars.Length; i++)
+            {
+                Console.WriteLine(cars[i].Mark);
+                Console.WriteLine(cars[i].Model);
+                cars[i].Start();
+
+                for (int j = 0; j < 5; j++)
+                {
+                    cars[i].Acelerate((uint)(j + 10));
+                    Console.WriteLine(cars[i].CurrentSpeed);
+                }
+
+                Console.WriteLine(new String('-', 50));
+            }           
         }
     }
 }
