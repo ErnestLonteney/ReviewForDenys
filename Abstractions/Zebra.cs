@@ -4,34 +4,32 @@ using System.Text;
 
 namespace Abstractions
 {
-    public class Tiger : WildAnimal
+    public class Zebra : WildAnimal
     {
-        public Tiger(string name) 
+        public Zebra(string name) 
             : base(name)
         {
         }
-
         public override string Name { get; set; }
-
         public override void Eat()
         {
-            Console.WriteLine("Eat meat");
+            Console.WriteLine("Eats grass");
         }
 
         public override void Walk()
         {
-            Console.WriteLine("Walking on safari");
+            Console.WriteLine("Walking on the savannah");
+        }
+        public override void Talk()
+        {
+            Console.WriteLine("Fr-fr-fr");
         }
 
         public override void Hunt()
         {
-            Console.WriteLine("Run");
-            Console.WriteLine("Kill");
+            Console.WriteLine("Run away"); 
         }
 
-        public override void Talk()
-        {
-            Console.WriteLine("Hrrr");
-        }
     }
+
 }

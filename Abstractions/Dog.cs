@@ -38,5 +38,10 @@ namespace Abstractions
         {
             Console.WriteLine("Woof-woof");
         }
+
+        public override void Walk()
+        {
+            Console.WriteLine("Walking around the yard");
+        }
     }
 }

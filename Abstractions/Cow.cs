@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Abstractions
 {
-    public class Cat : DomasticAnimal
+    public class Cow : FarmAnimal
     {
-        public Cat(string name) 
+        public Cow(string name) 
             : base(name)
         {
         }
@@ -15,23 +15,23 @@ namespace Abstractions
 
         public override void Eat()
         {
-            Console.WriteLine("Drink milk");
+            Console.WriteLine("Eats grass");
         }
 
         public override void Talk()
         {
-            Console.WriteLine("Myau-Myau");
+            Console.WriteLine("Moooou");
         }
 
         public override void Walk()
         {
-            Console.WriteLine("The cat is walking gracefully");
+            Console.WriteLine("Walking around the farm");
         }
 
-
-        public override void Play()
+        public override void Graze()
         {
-            PleasureLevel += 5;
+           Console.WriteLine("Grazing in the field");
         }
+
     }
 }

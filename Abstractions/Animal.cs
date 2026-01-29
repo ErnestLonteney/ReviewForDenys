@@ -21,6 +21,9 @@ namespace Abstractions
 
         public abstract void Talk();
 
+        public abstract void Walk();
+
+
         public string GetMyInfo()
         {
             return $"Hello! My name is {Name} I am {Level} level";
