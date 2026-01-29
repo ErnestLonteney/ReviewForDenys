@@ -12,7 +12,7 @@
             Zebra zebra = new Zebra("Marti");
 
 
-            Animal[] animals = [myAnimal, myTiger, bobik,cow,hyena,zebra];
+            Animal[] animals = [myAnimal, myTiger, bobik, cow, hyena, zebra];
            
 
             for (int i = 0; i < animals.Length; i++)
