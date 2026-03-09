@@ -4,12 +4,20 @@
     {     
         static void Main(string[] args)
         {
+            //Console.WriteLine("Input string");
+            //string str = Console.ReadLine();
+
+            //string res = str.CleanString();
+
+            //Console.WriteLine(res);
+
             Console.WriteLine("Input string");
-            string str = Console.ReadLine();
+            string line = Console.ReadLine();
 
-           string res =  str.CleanString();
+            string cleaned = line.RemoveSpecificCharapters();
+            string result = cleaned.WordUpper();
 
-            Console.WriteLine(res);
+            Console.WriteLine(result);
         }
     }
 }
