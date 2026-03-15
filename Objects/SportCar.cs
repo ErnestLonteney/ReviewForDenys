@@ -4,16 +4,10 @@ namespace Objects
 {
     class SportCar : Car
     {
-        public SportCar()
-            :base("Fiat", "Ferrari")
-        {           
-        }
-
-        public SportCar(string mark, string model, string color)
-            : base(mark, model, color)
+        public SportCar(string mark, string model, string vinCode, int number) 
+            : base(mark, model, vinCode, number)
         {
         }
-
         public decimal NitroVolume { get; set; }
 
         public string ManageBox { get; set; }
