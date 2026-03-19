@@ -1,8 +1,5 @@
 ﻿using ObjectsReview;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Objects
 {
@@ -17,13 +14,13 @@ namespace Objects
             this.cars = cars;
         }
 
-        public Car this[int number]
+        public Car this[string vinCode]
         {
             get
             {
-                for(int i = 0; i < cars.Length; i++)
+                for (int i = 0; i < cars.Length; i++)
                 {
-                    if (cars[i].Number == number)
+                    if (cars[i].VinCode == vinCode)
                         return cars[i];
                 }
                 return null;
@@ -39,8 +36,14 @@ namespace Objects
 
         public bool MoveNext()
         {
-            position++;
-            return position < cars.Length;
+            if (position < cars.Length)
+            {
+                position++;
+                return true;
+            }
+            
+            Reset();
+            return false;
         }
 
         public void Reset()

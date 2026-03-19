@@ -45,7 +45,7 @@ namespace ObjectsReview
 
             Parking parking = new Parking(cars);
 
-            foreach(Car car in parking)
+            foreach (Car car in parking)
             {
                 car.PrintInfo();
             }
@@ -62,7 +62,7 @@ namespace ObjectsReview
                     Console.WriteLine(cars[i].CurrentSpeed);
                 }
 
-                Console.WriteLine(new String('-', 50));
+                Console.WriteLine(new string('-', 50));
             }           
         }
     }
