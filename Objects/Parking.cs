@@ -1,5 +1,5 @@
 ﻿using ObjectsReview;
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
@@ -7,10 +7,12 @@ using System.Text;
 
 namespace Objects
 {
-    class Parking
+    class Parking : IEnumerator, IEnumerable
     {
         private uint pointer;
         private readonly Car[] cars;
+
+        private int position = -1;
 
         public Parking(int capacity)
         { 
@@ -25,34 +27,42 @@ namespace Objects
             }
         }
 
-        public Car this[string index]
+        public Car this[string vinCode]
         {
             get
             {
-                for (int i = 0; i < pointer; i++)
-                    if (cars[i].Vin == index)
-                    {
+                for (int i = 0; i < cars.Length; i++)
+                {
+                    if (cars[i].VinCode == vinCode)
                         return cars[i];
-                    }
-
+                }
                 return null;
-            }       
+            }
         }
 
-        public Car this[int index]
+        public object Current => cars[position];
+
+        public IEnumerator GetEnumerator()
         {
-            get
-            {
-                if (index >= 0 && index < pointer)
-                    return cars[index];
-
-                return null;
-            }           
+            return this;
         }
 
-       
+        public bool MoveNext()
+        {
+            if (position < cars.Length)
+            {
+                position++;
+                return true;
+            }
+            
+            Reset();
+            return false;
+        }
 
-     
-
+        public void Reset()
+        {
+            position = -1;
+        }
+    
     }
 }

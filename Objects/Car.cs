@@ -1,17 +1,18 @@
 ﻿using Objects;
+using System.Collections;
 
 namespace ObjectsReview
 {
-    class Car(string mark, string model)
+    class Car(string mark, string model, string vinCode, int number) 
     {
         #region Constructors
-
+          
         public required string Vin { get; init; }
 
         public Radio Radio { get; set; } = new Radio(); // auto-property initializer
 
-        public Car(string mark, string model, string color)
-            : this(mark, model)
+        public Car(string mark, string model, string color, string vinCode, int number)
+            : this(mark, model, vinCode, number)
         {
             Color = color;
         }
@@ -65,22 +66,31 @@ namespace ObjectsReview
 
         public string Model { get; } = model;
 
+        public string VinCode { get; } = vinCode;
+
+        public int Number { get; } = number;
+
         public uint CurrentSpeed { get; protected set; }  // read-only (set in constructor/inside class) - field currentSpeed      
 
+        
         #endregion
 
         #region Behavior 
+
+        public void PrintInfo()
+        {
+            Console.WriteLine($"Car info: Mark - {Mark}, Model - {Model}, Color - {Color}, VinCode - {VinCode}, Number - {Number}");
+            Console.WriteLine(new string('-',100));
+        }
         public void Start() 
         {
             Console.WriteLine("Car has been started");
         }
 
-
         public void Stop()
         {
             Console.WriteLine("Car has stopped");
         }
-
 
         public virtual void Acelerate(uint delta)
         {

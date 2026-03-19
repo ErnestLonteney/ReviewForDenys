@@ -1,4 +1,6 @@
-﻿namespace ExtensionMethods
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace ExtensionMethods
 {
     public static class ExtensionStringParser
     {
@@ -13,13 +15,13 @@
 
             for (int i = 0; i < words.Length; i++)
             {
-                if (!string.IsNullOrEmpty(words[i]))
+                if (!string.IsNullOrWhiteSpace(words[i]))
                 {
                     words[i] = char.ToUpper(words[i][0]) + words[i].Substring(1);
                 }
             }
 
-            string result = string.Join(" ", words);
+            string result = string.Join(' ', words);
 
             return result;
         }
