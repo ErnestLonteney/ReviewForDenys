@@ -63,19 +63,6 @@ namespace Objects
         {
             position = -1;
         }
-
-        public Car this[string index]
-        {
-            get
-            {
-                for (int i = 0; i < pointer; i++)
-                    if (cars[i].Vin == index)
-                    {
-                        return cars[i];
-                    }
-
-                return null;
-            }       
-        }     
+    
     }
 }
