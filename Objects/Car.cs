@@ -6,6 +6,9 @@ namespace ObjectsReview
     class Car(string mark, string model, string vinCode, int number) 
     {
         #region Constructors
+          
+        public required string Vin { get; init; }
+
         public Radio Radio { get; set; } = new Radio(); // auto-property initializer
 
         public Car(string mark, string model, string color, string vinCode, int number)

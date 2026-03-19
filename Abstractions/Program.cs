@@ -12,7 +12,7 @@
             Zebra zebra = new Zebra("Marti");
 
 
-            Animal[] animals = [myAnimal, myTiger, bobik,cow,hyena,zebra];
+            Animal[] animals = [myAnimal, myTiger, bobik, cow, hyena, zebra];
            
 
             for (int i = 0; i < animals.Length; i++)
@@ -21,7 +21,7 @@
                 animals[i].Talk();
                 animals[i].Eat();
                 animals[i].Walk();
-                
+
 
                 if (animals[i] is DomasticAnimal domestic)
                 {
@@ -32,14 +32,12 @@
 
                     Console.WriteLine(domestic.PleasureLevel);
                 }
-                else 
-                { 
-                    if (animals[i] is WildAnimal wild)
-                    {
-                        wild.Hunt();
-                    }
+                else if (animals[i] is WildAnimal wild)
+                {
+                    wild.Hunt();
                 }
-
+                
+                        
                     Console.WriteLine();
             }
 
