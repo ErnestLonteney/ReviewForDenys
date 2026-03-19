@@ -1,17 +1,30 @@
 ﻿using ObjectsReview;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace Objects
 {
     class Parking : IEnumerator, IEnumerable
     {
-        private Car[] cars;
+        private uint pointer;
+        private readonly Car[] cars;
 
         private int position = -1;
 
-        public Parking(Car[] cars)
+        public Parking(int capacity)
+        { 
+            cars = new Car[capacity];
+        }
+
+        public void Add(Car car)
         {
-            this.cars = cars;
+            if (pointer < cars.Length)
+            {
+                cars[pointer++] = car;
+            }
         }
 
         public Car this[string vinCode]
@@ -50,5 +63,19 @@ namespace Objects
         {
             position = -1;
         }
+
+        public Car this[string index]
+        {
+            get
+            {
+                for (int i = 0; i < pointer; i++)
+                    if (cars[i].Vin == index)
+                    {
+                        return cars[i];
+                    }
+
+                return null;
+            }       
+        }     
     }
 }

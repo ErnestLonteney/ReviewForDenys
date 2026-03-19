@@ -4,5 +4,6 @@
   <Project Path="ExtensionMethods/ExtensionMethods.csproj" />
   <Project Path="Objects/Objects.csproj" />
   <Project Path="Objects2/Objects2.csproj" Id="4a2abe67-d775-433d-a8d7-cfa5dc93ee6f" />
+  <Project Path="StructsReview/IndexatorsReview.csproj" Id="7fa16c56-f511-455e-a2f8-e52ca3b98afa" />
   <Project Path="Variables/Variables.csproj" />
 </Solution>

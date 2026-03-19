@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Abstractions
 {
-    public class Cow : DomasticAnimal
+    public class Cow : FarmAnimal
     {
         public Cow(string name) 
             : base(name)
@@ -25,12 +25,13 @@ namespace Abstractions
 
         public override void Walk()
         {
-            Console.WriteLine("The cow is grazing");
+            Console.WriteLine("Walking around the farm");
         }
 
-        public override void Play()
+        public override void Graze()
         {
-            PleasureLevel += 3;
+           Console.WriteLine("Grazing in the field");
         }
+
     }
 }
