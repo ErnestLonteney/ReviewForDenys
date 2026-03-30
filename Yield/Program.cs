@@ -1,4 +1,5 @@
 ﻿using Yield;
+using System.Collections;
 
 class Program
 {
@@ -10,5 +11,12 @@ class Program
         {
             Console.WriteLine(i);
         }
+
+        IEnumerable result = Words.GenerateWords(null);
+        foreach (string i in result)
+        {
+            Console.WriteLine(i);
+        }
+        
     }
 }
