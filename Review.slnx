@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="Abstractions/Abstractions.csproj" Id="c9724c90-cc43-4ece-9ff5-6e9c1af391e3" />
   <Project Path="Arrays/Arrays.csproj" />
+  <Project Path="Delegates/Delegates.csproj" Id="f7ec897f-1546-41cd-b78b-a3260aec08d9" />
   <Project Path="ExtensionMethods/ExtensionMethods.csproj" />
   <Project Path="Objects/Objects.csproj" />
   <Project Path="Objects2/Objects2.csproj" Id="4a2abe67-d775-433d-a8d7-cfa5dc93ee6f" />
