@@ -3,6 +3,7 @@
   <Project Path="Arrays/Arrays.csproj" />
   <Project Path="Delegates/Delegates.csproj" Id="f7ec897f-1546-41cd-b78b-a3260aec08d9" />
   <Project Path="ExtensionMethods/ExtensionMethods.csproj" />
+  <Project Path="Generics/Generics.csproj" Id="7bd215a1-32b6-49ca-9d13-e5b44225ec40" />
   <Project Path="Objects/Objects.csproj" />
   <Project Path="Objects2/Objects2.csproj" Id="4a2abe67-d775-433d-a8d7-cfa5dc93ee6f" />
   <Project Path="Variables/Variables.csproj" />
