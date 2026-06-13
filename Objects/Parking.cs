@@ -33,7 +33,7 @@ namespace Objects
             {
                 for (int i = 0; i < cars.Length; i++)
                 {
-                    if (cars[i].VinCode == vinCode)
+                    if (cars[i].Vin == vinCode)
                         return cars[i];
                 }
                 return null;
@@ -49,7 +49,7 @@ namespace Objects
 
         public bool MoveNext()
         {
-            if (position < cars.Length)
+            if (position < cars.Length - 1)
             {
                 position++;
                 return true;
