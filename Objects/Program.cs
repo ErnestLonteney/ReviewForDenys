@@ -1,98 +1,90 @@
 ﻿using Objects;
-using System.Runtime.InteropServices;
 
 namespace ObjectsReview
 {
     internal class Program
     {
         static void Main(string[] args)
-        {
-            
-            var car1 = new Car("Audi", "TT", "WDV1234561A234323", 1)
+        {        
+            var car1 = new SportCar("Audi", "TT", Color.Blue)
             {
-                Color = "Blue",
-                Vin = "2324234"
-            };
-
-            var car2 = new Car("Renault", "Megan", "WHE1717230N128585", 2)
-            {
-                Color = "White",
-                Vin = "2324234543244"
-            };
-
-            var car3 = new Car("Volkswagen", "Arteon", "JSN1092837A756462", 3)
-            {
-                Color = "Yellow"
-            };
-
-            //car2.Start();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    car2.Acelerate(10);
-            //}
-
-            //Console.WriteLine(car2.CurrentSpeed);
-
-            SportCar sportCar = new SportCar("Lamborghini", "Diablo", "IFN1478730N098765", 4)
-            {
-                Color = "Red",
                 NitroVolume = 100,
-                Vin = "232423454354"
+                Vin = "21338uje93ed32ws5"
             };
 
-            //sportCar.Acelerate(50);
+            var car2 = new Sedan("Renault", "Megan", Color.White)
+            {
+                Vin = "24558uje93edjjyrd",
+                Number = "ABC123"
+            };
 
-            //Console.WriteLine(sportCar.Mark);
-            //Console.WriteLine(sportCar.Model);
+            var car3 = new Crossower("Volkswagen", "Arteon", Color.Black) 
+            {
+                Vin = "123jhuje93edjina4",
+                Number = "XYZ789"
+            };
 
-            Car[] cars = [car1, car2, car3, sportCar];
+            var car4 = new SportCar("Lamborghini", "Diablo", Color.Yellow)
+            {
+                NitroVolume = 100,
+                Vin = "21458u2343edjina4"
+            };
 
-            Parking parking = new Parking(cars);
+            Car[] cars = [car1, car2, car3, car4];
+
+            var parking = new Parking(25);
+
+            for (int i = 0; i < cars.Length; i++)
+                parking.Add(cars[i]);
 
             foreach (Car car in parking)
             {
                 car.PrintInfo();
             }
 
-            Parking parking = new Parking(10);
 
-            for (int i = 0; i < cars.Length; i++)
-                parking.Add(cars[i]);
+            IInformable? carForInfo = parking["21458u2343edjina4"];
 
-            Car car = parking["2324234543244"];
+            Console.WriteLine(carForInfo?.Name);
+            Console.WriteLine(carForInfo?.Number);
+            carForInfo?.PrintInfo();
 
-
-            parking["2324234543244"] = new Car("", "") { Color = "", Vin = "" };
-
-
-            Console.WriteLine(car.Mark);
-            Console.WriteLine(car.Model);
+            var parking2 = new Parking(10)
+            {
+                new Sedan("Toyota", "Camry", Color.Black)
+                {
+                    Vin = "10ijd42343edjina4"
+                }
+            };
 
             Console.WriteLine(new String('*', 50));
 
-            for (int i = 0; i < cars.Length; i++)
+            foreach (Car car in parking)
             {
-                var carInParking = parking[i];
+                Console.WriteLine(car.Mark);
+                Console.WriteLine(car.Model);
+                car.Start();
 
-                Console.WriteLine(carInParking.Mark);
-                Console.WriteLine(carInParking.Model);
+                if (car is SportCar sportCar)
+                {
+                    car.TurnOnRadio();
+                }
+
+                for (int j = 0; j < 5; j++)
+                {
+                    car.Acelerate((uint)(j + 10));
+                    Console.WriteLine(car.CurrentSpeed);
+                }
+
+                car.Stop();
+
+                if (car is SportCar sportCar2)
+                {
+                    car.TurnOffRadios();
+                }
+
+                Console.WriteLine(new String('-', 50));
             }
-
-            //for (int i = 0; i < cars.Length; i++)
-            //{
-            //    Console.WriteLine(cars[i].Mark);
-            //    Console.WriteLine(cars[i].Model);
-            //    cars[i].Start();
-
-            //    for (int j = 0; j < 5; j++)
-            //    {
-            //        cars[i].Acelerate((uint)(j + 10));
-            //        Console.WriteLine(cars[i].CurrentSpeed);
-            //    }
-
-            //    Console.WriteLine(new String('-', 50));
-
-            // }           
         }
     }
 }

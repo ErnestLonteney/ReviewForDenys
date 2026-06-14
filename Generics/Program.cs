@@ -39,15 +39,15 @@
             Console.WriteLine($"s1={s1} s2={s2}");
 
             decimal m1 = 10.34m;
-            decimal m2 = 20.34;   
+            decimal m2 = 20.34m;   
             
             var res =  Add<decimal>(m1, m2);
 
             Console.WriteLine(res);
 
-            var r = Add<string>("2334", "34345"); 
+            var r = Add(2334, 34345); 
 
-            Console.WriteLine(res2);
+            Console.WriteLine(r);
 
             var greeter = new Greeter<string, DateTime>(
                 new DateTime(1986, 1, 1), 
@@ -58,9 +58,9 @@
 
             greeter.Greet("Volodymyr");
 
-            var greeter2 = new Greeter<int, string>("Best worker", "best quality", "winner 2034");
+            var greeter2 = new Greeter<string, string>("Best worker", "best quality", "winner 2034");
 
-            greeter2.Greet(3435345);
+            greeter2.Greet("John Doe");
 
         }
     }
