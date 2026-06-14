@@ -2,15 +2,10 @@
 
 namespace Objects
 {
-    class SportCar : Car
+    class SportCar(string mark, string model, Color color) 
+        : Car(mark, model, color)
     {
-        public SportCar(string mark, string model, string vinCode, int number) 
-            : base(mark, model, vinCode, number)
-        {
-        }
         public decimal NitroVolume { get; set; }
-
-        public string ManageBox { get; set; }
 
         public override void Acelerate(uint value)
         {
@@ -23,6 +18,16 @@ namespace Objects
             }
 
             base.Acelerate(delta);
+        }
+
+        public override void Start()
+        {
+            Console.WriteLine("WROOM!!!");
+        }
+
+        public override void Stop()
+        {
+            Console.WriteLine("STOPPING... whizzzz");
         }
     }
 }

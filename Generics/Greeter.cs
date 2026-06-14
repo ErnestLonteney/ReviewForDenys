@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections;
 
 namespace Generics
 {
-    public class Greeter<T, K> where T : class where K : new() 
+    public class Greeter<T, K> where T : class where K : IConvertible
     {
         private readonly K[] values;
 
         public Greeter(params K[] array)
         {
-            K temp = new K();   
-
             values = array;
         }
 

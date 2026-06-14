@@ -1,23 +1,14 @@
 ﻿using ObjectsReview;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace Objects
 {
-    class Parking : IEnumerator, IEnumerable
+    class Parking(int capacity) : IEnumerator<Car>, IEnumerable<Car>    
     {
         private uint pointer;
-        private readonly Car[] cars;
+        private readonly Car[] cars = new Car[capacity];
 
         private int position = -1;
-
-        public Parking(int capacity)
-        { 
-            cars = new Car[capacity];
-        }
 
         public void Add(Car car)
         {
@@ -27,35 +18,37 @@ namespace Objects
             }
         }
 
-        public Car this[string vinCode]
+        public Car? this[string vinCode]
         {
             get
             {
                 for (int i = 0; i < cars.Length; i++)
                 {
-                    if (cars[i].VinCode == vinCode)
+                    if (cars[i].Vin == vinCode)
                         return cars[i];
                 }
+
                 return null;
             }
         }
 
-        public object Current => cars[position];
+       object IEnumerator.Current => cars[position];
 
-        public IEnumerator GetEnumerator()
+        public Car Current => cars[position];
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return this;
         }
 
         public bool MoveNext()
         {
-            if (position < cars.Length)
+            if (position < pointer - 1)
             {
                 position++;
                 return true;
             }
             
-            Reset();
             return false;
         }
 
@@ -63,6 +56,15 @@ namespace Objects
         {
             position = -1;
         }
-    
+
+        public void Dispose()
+        {
+            Reset();
+        }
+
+        public IEnumerator<Car> GetEnumerator()
+        {
+            return this;
+        }
     }
 }
