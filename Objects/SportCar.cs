@@ -22,12 +22,12 @@ namespace Objects
 
         public override void Start()
         {
-            Console.WriteLine("WROOM!!!");
+            Console.WriteLine("The sport car is starting...");
         }
 
         public override void Stop()
         {
-            Console.WriteLine("STOPPING... whizzzz");
+            Console.WriteLine("The sport car is stopping...");
         }
     }
 }
