@@ -7,15 +7,11 @@ namespace Objects
 {
     class DeadEngineException : Exception
     {
-        public uint Speed { get; init; }
-        public Car Car { get; init; }
-
         public DeadEngineException() { }
 
         public DeadEngineException(string message)
             : base(message)
         {
-
         }
 
         public DeadEngineException(string message, uint speed, Car car) 
@@ -24,5 +20,8 @@ namespace Objects
             Speed = speed;
             Car = car;
         }
+
+        public uint Speed { get; init; }
+        public Car Car { get; init; }
     }
 }
