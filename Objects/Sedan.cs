@@ -7,12 +7,12 @@ namespace Objects
     {
         public override void Start()
         {
-            Console.WriteLine("HRRRRR");
+            Console.WriteLine("The sedan is starting...");
         }
 
         public override void Stop()
         {
-            Console.WriteLine("STOPPING... shhhh");
+            Console.WriteLine("The sedan is stopping...");
         }
     }
 }

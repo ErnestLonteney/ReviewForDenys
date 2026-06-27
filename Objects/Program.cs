@@ -5,7 +5,10 @@ namespace ObjectsReview
     internal class Program
     {
         static void Main(string[] args)
-        {        
+        {
+            Random random = new Random();
+            object locker = new object();
+
             var car1 = new SportCar("Audi", "TT", Color.Blue)
             {
                 NitroVolume = 100,
@@ -30,7 +33,13 @@ namespace ObjectsReview
                 Vin = "21458u2343edjina4"
             };
 
-            Car[] cars = [car1, car2, car3, car4];
+            var car5 = new Sedan("Mercedes", "Sprinter", Color.Black)
+            {
+                Vin = "10fh4h8a83nr7qhr5",
+                Number = "JKL012"
+            };
+
+            Car[] cars = [car1, car2, car3, car4, car5];
 
             var parking = new Parking(25);
 
@@ -41,7 +50,6 @@ namespace ObjectsReview
             {
                 car.PrintInfo();
             }
-
 
             IInformable? carForInfo = parking["21458u2343edjina4"];
 
@@ -61,8 +69,7 @@ namespace ObjectsReview
 
             foreach (Car car in parking)
             {
-                Console.WriteLine(car.Mark);
-                Console.WriteLine(car.Model);
+                Console.WriteLine($"{car.Mark}, {car.Model}");
                 car.Start();
 
                 if (car is SportCar sportCar)
@@ -70,10 +77,28 @@ namespace ObjectsReview
                     car.TurnOnRadio();
                 }
 
-                for (int j = 0; j < 5; j++)
+                try
                 {
-                    car.Acelerate((uint)(j + 10));
-                    Console.WriteLine(car.CurrentSpeed);
+                    for (int j = 0; j < 5; j++)
+                    {
+                        int number = random.Next(10, 100);
+                        car.Acelerate((uint)(j + number));
+                        Console.WriteLine(car.CurrentSpeed);
+                    }
+                }
+                catch (DeadEngineException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    break;
+                }
+                finally
+                {
+                    Console.ResetColor();
                 }
 
                 car.Stop();
@@ -83,7 +108,52 @@ namespace ObjectsReview
                     car.TurnOffRadios();
                 }
 
-                Console.WriteLine(new String('-', 50));
+                Console.WriteLine(new String('-', 50));          
+            }
+
+            Console.WriteLine(new String('*', 50)); 
+            Console.WriteLine("Run asynchronously");
+
+            for (int j = 0; j < cars.Length; j++)
+            {
+                var currentCar = cars[j];
+                new Thread(new ThreadStart(() =>
+                {
+                    Console.WriteLine($"{currentCar.Mark} {currentCar.Model}");
+                    currentCar.Start();
+                    for (int k = 0; k < random.Next(10, 100); k++)
+                    {
+                        try
+                        {
+                            currentCar.Acelerate((uint)k + 2);
+                            Console.WriteLine($"{currentCar.Mark} {currentCar.Model} - {currentCar.CurrentSpeed} km/h");
+                        }
+                        catch (DeadEngineException ex)
+                        {
+                            lock (locker)
+                            {
+                                Console.WriteLine(ex.Message);
+                                break;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            lock (locker)
+                            {
+                                Console.WriteLine(ex.Message);
+                                break;
+                            }
+                        }
+                        finally
+                        {
+                            lock (locker)
+                            {
+                                Console.ResetColor();
+                            }
+                        }
+
+                    }
+                })).Start();
             }
         }
     }

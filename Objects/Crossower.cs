@@ -7,11 +7,11 @@ class Crossower(string mark, string model, Color color)
 {
     public override void Start()
     {
-        Console.WriteLine("HRRRRR BRRRR");
+        Console.WriteLine("The crossower is starting...");
     }
 
     public override void Stop()
     {
-        Console.WriteLine("STOPPING... shhhh BRRRR");
+        Console.WriteLine("The crossower is stopping...");
     }
 }

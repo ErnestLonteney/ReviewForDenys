@@ -98,7 +98,9 @@ abstract class Car : IInformable
         CurrentSpeed += delta;
 
         if (CurrentSpeed > MaxSpeed)
-            CurrentSpeed = MaxSpeed;
+        {
+            throw new DeadEngineException($"Engine died on {CurrentSpeed} speed of the {Mark} {Model}", CurrentSpeed, this);
+        }
     }
     #endregion
 }
