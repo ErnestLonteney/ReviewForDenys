@@ -120,7 +120,7 @@ namespace ObjectsReview
                 var currentCar = cars[j];
                 new Thread(new ThreadStart(() =>
                 {
-                    lock(locker)
+                    lock (locker)
                     {
                         Console.WriteLine($"{currentCar.Mark} {currentCar.Model}");
                         currentCar.Start();
@@ -130,7 +130,7 @@ namespace ObjectsReview
                         try
                         {
                             currentCar.Acelerate((uint)k + 2);
-                            lock(locker)
+                            lock (locker)
                             {
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine($"{currentCar.Mark} {currentCar.Model} - {currentCar.CurrentSpeed} km/h");
