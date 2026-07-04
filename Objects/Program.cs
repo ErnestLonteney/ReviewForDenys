@@ -7,7 +7,7 @@ namespace ObjectsReview
         static void Main(string[] args)
         {
             Random random = new Random();
-            object locker = new object();
+            Lock locker = new Lock();
 
             var car1 = new SportCar("Audi", "TT", Color.Blue)
             {
@@ -119,39 +119,42 @@ namespace ObjectsReview
                 var currentCar = cars[j];
                 new Thread(new ThreadStart(() =>
                 {
-                    Console.WriteLine($"{currentCar.Mark} {currentCar.Model}");
-                    currentCar.Start();
+                    lock (locker)
+                    {
+                        Console.WriteLine($"{currentCar.Mark} {currentCar.Model}");
+                        currentCar.Start();
+                    }
                     for (int k = 0; k < random.Next(10, 100); k++)
                     {
                         try
                         {
                             currentCar.Acelerate((uint)k + 2);
-                            Console.WriteLine($"{currentCar.Mark} {currentCar.Model} - {currentCar.CurrentSpeed} km/h");
+                            lock (locker)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine($"{currentCar.Mark} {currentCar.Model} - {currentCar.CurrentSpeed} km/h");
+                                Console.ResetColor();
+                            }
                         }
                         catch (DeadEngineException ex)
                         {
                             lock (locker)
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.BackgroundColor = ConsoleColor.White;
                                 Console.WriteLine(ex.Message);
-                                break;
+                                Console.ResetColor();
                             }
+                            break;
                         }
                         catch (Exception ex)
                         {
                             lock (locker)
                             {
-                                Console.WriteLine(ex.Message);
-                                break;
+                                Console.WriteLine(ex.Message);                        
                             }
-                        }
-                        finally
-                        {
-                            lock (locker)
-                            {
-                                Console.ResetColor();
-                            }
-                        }
-
+                            break;
+                        }                    
                     }
                 })).Start();
             }
