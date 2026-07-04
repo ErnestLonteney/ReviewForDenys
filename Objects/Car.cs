@@ -49,7 +49,7 @@ abstract class Car : IInformable
 
     public uint CurrentSpeed { get; protected set; }  // read-only (set in constructor/inside class) - field currentSpeed      
 
-    public string? Name => $"{Mark} {Model}";
+    public virtual string? Name => $"{Mark} {Model}";
 
 
     // An Example of what stay behind the scenes of a property with a backing field
@@ -79,9 +79,39 @@ abstract class Car : IInformable
         Console.WriteLine($"Car info: Mark - {Mark}, Model - {Model}, Color - {Color}, VinCode - {Vin}, Number - {Number}");
         Console.WriteLine(new string('-',100));
     }
-    public abstract void Start();
 
-    public abstract void Stop();
+    public override bool Equals(object? obj)
+    {
+        if(obj is Car other)
+        {
+            return Vin == other.Vin;
+        }
+
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Vin.GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return $"Car {Mark} {Model} on the road";
+    }
+    public virtual void Start()
+    {
+        Launch?.Invoke();
+    }
+
+    public virtual void Stop()
+    {
+        Stopped?.Invoke();
+    }
+
+    public event Action Launch;
+    public event Action Stopped;
+
 
     public void TurnOnRadio()
     {
