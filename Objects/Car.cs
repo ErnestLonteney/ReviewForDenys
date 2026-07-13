@@ -97,7 +97,7 @@ abstract class Car : IInformable
 
     public override string ToString()
     {
-        return $"Car {Mark} {Model} on the road";
+        return $"Car {Name} on the road";
     }
     public virtual void Start()
     {
