@@ -15,30 +15,84 @@ namespace ObjectsReview
                 NitroVolume = 100,
                 Vin = "21338uje93ed32ws5"
             };
+            car1.Launch += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            };
+            car1.Stopped += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            };
+            Console.WriteLine(car1);
 
             var car2 = new Sedan("Renault", "Megan", Color.White)
             {
                 Vin = "24558uje93edjjyrd",
                 Number = "ABC123"
             };
+            car2.Launch += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            };
+            car2.Stopped += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            };
+            Console.WriteLine(car2);
 
             var car3 = new Crossower("Volkswagen", "Arteon", Color.Black) 
             {
                 Vin = "123jhuje93edjina4",
                 Number = "XYZ789"
             };
+            car3.Launch += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            };
+            car3.Stopped += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            };
+            Console.WriteLine(car3);
 
             var car4 = new SportCar("Lamborghini", "Diablo", Color.Yellow)
             {
                 NitroVolume = 100,
                 Vin = "21458u2343edjina4"
             };
+            car4.Launch += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            };
+            car4.Stopped += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            };
+            Console.WriteLine(car4);
 
             var car5 = new Sedan("Mercedes", "Sprinter", Color.Black)
             {
-                Vin = "10fh4h8a83nr7qhr5",
+                Vin = "21458u2343edjina4",
                 Number = "JKL012"
             };
+            car5.Launch += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            };
+            car5.Stopped += () =>
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            };
+            Console.WriteLine(car5);
+
+            bool res = car4.Equals(car5);
+            Console.WriteLine($"Equals :{res}");
+
+            bool res2 = Object.Equals(car4, car5);
+            Console.WriteLine($"Object.Equals :{res2}");
+
+            bool res3 = Object.ReferenceEquals(car4, car1);
+            Console.WriteLine($"Object.ReferenceEquals :{res3}");
 
             Car[] cars = [car1, car2, car3, car4, car5];
 
@@ -82,7 +136,7 @@ namespace ObjectsReview
                 {
                     for (int j = 0; j < 5; j++)
                     {
-                        int number = random.Next(10, 100);
+                        int number = random.Next(10, 15);
                         car.Acelerate((uint)(j + number));
                         Console.WriteLine(car.CurrentSpeed);
                     }
