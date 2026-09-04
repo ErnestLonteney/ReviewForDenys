@@ -190,7 +190,6 @@ namespace ObjectsReview
                                 Console.WriteLine($"{currentCar.Mark} {currentCar.Model} - {currentCar.CurrentSpeed} km/h");
                                 Console.ResetColor();
                             }
-                            
                         }
                         catch (DeadEngineException ex)
                         {

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../Enumerables/Enumerables.csproj" />
+  <Project Path="../ExceptionsReview/ExceptionsReview.csproj" />
+  <Project Path="../NullableExamples/NullableExamples.csproj" Id="db5f018d-3e98-4c72-a830-27fd03b6f37a" />
+  <Project Path="EssencialReview.Part2.csproj" />
+</Solution>
