@@ -1,11 +1,15 @@
 <Solution>
   <Project Path="Abstractions/Abstractions.csproj" Id="c9724c90-cc43-4ece-9ff5-6e9c1af391e3" />
   <Project Path="Arrays/Arrays.csproj" />
+  <Project Path="CollectionExample/CollectionExample.csproj" />
   <Project Path="Delegates/Delegates.csproj" Id="f7ec897f-1546-41cd-b78b-a3260aec08d9" />
+  <Project Path="EssencialReview.Part2/EssencialReview.Part2.csproj" />
   <Project Path="ExtensionMethods/ExtensionMethods.csproj" />
   <Project Path="Generics/Generics.csproj" Id="7bd215a1-32b6-49ca-9d13-e5b44225ec40" />
+  <Project Path="NullableExamples/NullableExamples.csproj" />
   <Project Path="Objects/Objects.csproj" />
   <Project Path="Objects2/Objects2.csproj" Id="4a2abe67-d775-433d-a8d7-cfa5dc93ee6f" />
+  <Project Path="RewiewEssensial/RewiewEssensial.csproj" />
   <Project Path="StructsReview/IndexatorsReview.csproj" Id="7fa16c56-f511-455e-a2f8-e52ca3b98afa" />
   <Project Path="Variables/Variables.csproj" />
   <Project Path="Yield/Yield.csproj" Id="9f93b273-af7f-4b68-b7e9-9518574f79aa" />
